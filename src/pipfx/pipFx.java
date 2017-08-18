@@ -23,7 +23,8 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static melektro.Email.EMailSender;
-import static melektro.PublicIPAddress.Log;
+import melektro.LogsFormatter;
+import static melektro.LogsFormatter.Log;
 import static melektro.PublicIPAddress.GetPublicIp;
 
 public class pipFx {
@@ -236,6 +237,7 @@ public class pipFx {
     }
 
     public static void main(String[] args) throws Exception {
+        new LogsFormatter().setLogging(Level.ALL);        
         GetProperties();
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
